@@ -1,6 +1,14 @@
-import MySQLdb
-db = MySQLdb.connect("localhost","root","candy1991","mysql")
-cursor = db.cursor()
-cursor.execute("select * from user")
-data = cursor.fetchone()
-print data
+import pymysql
+connect = pymysql.Connect(
+	host = 'localhost',
+	port=3306,
+	user='root',
+	passwd='root',
+	db='mysql',
+	charset='utf8'
+)
+cursor = connect.cursor()
+sql = "select * from user"
+cursor.execute(sql)
+for row in cursor.fetchall():
+	print(row)
