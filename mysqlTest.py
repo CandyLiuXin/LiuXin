@@ -8,7 +8,7 @@ connect = pymysql.Connect(
 	charset='utf8'
 )
 cursor = connect.cursor()
-sql = "select * from user"
+sql = "select host,user from user"
 cursor.execute(sql)
-for row in cursor.fetchall():
-	print(row)
+for a,b in cursor.fetchall():
+	print(a,b)
